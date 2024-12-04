@@ -69,7 +69,7 @@ def terminal():
             taxa = input("Digite a nova taxa de imposto: \n")
             sisbanco.set_taxa_imposto(taxa)
 
-        elif opcao == 8:
+        elif opcao == 9:
             print("SisBanco::Bye!")
             return
 
