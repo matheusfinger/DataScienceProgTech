@@ -29,7 +29,7 @@ class Conta(ContaAbstrata):
 class ContaImposto(ContaAbstrata):
     def __init__(self, numero:str):
         super().__init__(numero)
-        self.__taxa = 0.01
+        self.__taxa = 0.001
     
     def debitar(self, valor: float) -> None:
         self.__saldo = self.__saldo - (valor + (valor * self.__taxa))
