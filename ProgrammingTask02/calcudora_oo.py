@@ -7,7 +7,7 @@ class Calculadora:
         """
         Realiza a soma de dois números.
         """
-        if operando_b == None:
+        if operando_b is None:
             operando_b = operando_a
             operando_a = self.__acumulador
         self.__acumulador = operando_a + operando_b
@@ -17,7 +17,7 @@ class Calculadora:
         """
         Realiza a subtração de dois números.
         """
-        if operando_b == None:
+        if operando_b is None:
             operando_b = operando_a
             operando_a = self.__acumulador
         self.__acumulador = operando_a - operando_b
@@ -27,7 +27,7 @@ class Calculadora:
         """
         Realiza a multiplicação de dois números.
         """
-        if operando_b == None:
+        if operando_b is None:
             operando_b = operando_a
             operando_a = self.__acumulador
         self.__acumulador = operando_a * operando_b
@@ -37,7 +37,7 @@ class Calculadora:
         """
         Realiza a divisão de dois números.
         """
-        if operando_b == None:
+        if operando_b is None:
             operando_b = operando_a
             operando_a = self.__acumulador
         self.__acumulador = operando_a / operando_b

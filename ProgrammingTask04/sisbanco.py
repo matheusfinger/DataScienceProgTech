@@ -4,10 +4,10 @@ class ContaAbstrata(ABC):
     
     def __init__(self, numero:str):
         self.__numero = numero
-        self.__saldo = 0.0
+        self._saldo = 0.0
 
     def creditar(self, valor:float) -> None:
-        self.__saldo += valor
+        self._saldo += valor
 
     @abstractmethod
     def debitar(self, valor:float) -> None:
@@ -17,7 +17,7 @@ class ContaAbstrata(ABC):
         return self.__numero
 
     def get_saldo(self) -> float:
-        return self.__saldo
+        return self._saldo
 
 class Conta(ContaAbstrata):
 
@@ -25,7 +25,7 @@ class Conta(ContaAbstrata):
         super().__init__(numero)
 
     def debitar(self, valor:float) -> None:
-        self.__saldo -= valor
+        self._saldo -= valor
 
 class ContaPoupanca(Conta):
 
@@ -39,6 +39,7 @@ class ContaEspecial(Conta):
 
     def __init__(self, numero:str):
         super().__init__(numero)
+        self.__bonus = 0
 
     def render_bonus(self) -> None:
         super().creditar(self.__bonus)
@@ -56,7 +57,7 @@ class ContaImposto(ContaAbstrata):
         self.__taxa__ = 0.001
 
     def debitar(self, valor:float):
-        self.__saldo = self.__saldo - (valor + (valor * self.__taxa))
+        self._saldo = self._saldo - (valor + (valor * self.__taxa))
 
     def get_taxa(self) -> float:
         return self.__taxa

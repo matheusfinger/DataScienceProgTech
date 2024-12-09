@@ -23,6 +23,7 @@ def terminal():
         if opcao == 0:
             tipo = input("Digite o tipo de conta: \nS - Simples |   P - Poupança    |   E - Especial    |   I - Imposto\n")
             numero = input("Digite o numero da conta: \n")
+            erro = False
             if tipo == 'S':
                 conta = Conta(numero)
             elif tipo == 'P':
@@ -31,7 +32,11 @@ def terminal():
                 conta = ContaEspecial(numero)
             elif tipo == 'I':
                 conta = ContaImposto(numero)
-            sisbanco.cadastrar(conta)
+            else:
+                erro = True
+                print("Tente novamente")
+            if not erro:
+                sisbanco.cadastrar(conta)
 
         elif opcao == 1:
             numero = input("Digite o número da conta alvo: \n")
